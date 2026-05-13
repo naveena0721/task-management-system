@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Management Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+
+            height:100vh;
+
+            background:
+            linear-gradient(
+            135deg,
+            #EFC3FF,
+            #120026
+            );
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+        }
+
+        .main-container{
+
+            width:1440px;
+            height:900px;
+
+            display:flex;
+
+            border-radius:30px;
+
+            overflow:hidden;
+
+            box-shadow:0px 10px 40px rgba(0,0,0,0.4);
+
+        }
+
+        /* LEFT PANEL */
+
+        .left-panel{
+
+            width:50%;
+
+            background:
+            linear-gradient(
+            to bottom,
+            #4B0082,
+            #21003F
+            );
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+
+            color:white;
+
+            padding:50px;
+
+        }
+
+        .left-panel img{
+
+            width:350px;
+
+            margin-bottom:30px;
+
+            filter:drop-shadow(0px 0px 20px #ff9ff3);
+
+        }
+
+        .left-panel h1{
+
+            font-size:45px;
+            font-weight:bold;
+            margin-bottom:15px;
+
+        }
+
+        .left-panel p{
+
+            font-size:20px;
+            color:#f5d6ff;
+
+        }
+
+        /* RIGHT PANEL */
+
+        .right-panel{
+
+            width:50%;
+
+            background:rgba(255,255,255,0.08);
+
+            backdrop-filter:blur(20px);
+
+            padding:100px 80px;
+
+            color:white;
+
+        }
+
+        .welcome{
+
+            font-size:50px;
+            font-weight:bold;
+            margin-bottom:10px;
+
+        }
+
+        .sub{
+
+            margin-bottom:40px;
+            color:#ddd;
+
+        }
+
+        .form-label{
+
+            margin-top:20px;
+            margin-bottom:10px;
+
+        }
+
+        .form-control{
+
+            height:55px;
+
+            background:transparent;
+
+            border:1px solid rgba(255,255,255,0.2);
+
+            color:white;
+
+            border-radius:15px;
+
+        }
+
+        .form-control:focus{
+
+            background:transparent;
+            color:white;
+
+            box-shadow:none;
+
+            border:1px solid #FF9FF3;
+
+        }
+
+        .btn-login{
+
+            margin-top:40px;
+
+            width:100%;
+            height:60px;
+
+            border:none;
+
+            border-radius:20px;
+
+            font-size:22px;
+            font-weight:bold;
+
+            color:white;
+
+            background:
+            linear-gradient(
+            to right,
+            #1B0045,
+            #FF9FF3
+            );
+
+            transition:0.3s;
+
+        }
+
+        .btn-login:hover{
+
+            transform:scale(1.03);
+
+        }
+
+        .bottom-text{
+
+            text-align:center;
+            margin-top:25px;
+
+        }
+
+        a{
+
+            color:#FF9FF3;
+            text-decoration:none;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="left-panel">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2620/2620277.png">
+
+        <h1>
+            Task Management System
+        </h1>
+
+        <p>
+            Organize, Track and Complete Tasks Efficiently
+        </p>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="right-panel">
+
+        <div class="welcome">
+            Welcome Back!
+        </div>
+
+        <div class="sub">
+            Login to continue your account
+        </div>
+
+        <form action="/dashboard">
+
+            <label class="form-label">
+                Username or Email
+            </label>
+
+            <input type="text"
+                   class="form-control"
+                   placeholder="Enter username">
+
+            <label class="form-label">
+                Password
+            </label>
+
+            <input type="password"
+                   class="form-control"
+                   placeholder="Enter password">
+
+            <button class="btn-login">
+                Login
+            </button>
+
+        </form>
+
+        <div class="bottom-text">
+
+            Don’t have account?
+            <a href="/signup">
+    Create Account
+</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
