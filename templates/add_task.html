@@ -8,18 +8,28 @@
 
     <title>Add Task</title>
 
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='style.css') }}">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
 
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
         body{
+
+            min-height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
 
             background:
             linear-gradient(
@@ -28,146 +38,195 @@
             #120026
             );
 
-            min-height:100vh;
+            overflow:hidden;
+        }
+
+        .glass-card{
+
+            width:520px;
+
+            padding:45px;
+
+            border-radius:35px;
+
+            background:
+            rgba(255,255,255,0.12);
+
+            backdrop-filter:blur(18px);
+
+            border:
+            1px solid rgba(255,255,255,0.2);
+
+            box-shadow:
+            0 8px 32px rgba(0,0,0,0.25);
+
+            color:white;
+        }
+
+        .logo-box{
+
+            width:100px;
+            height:100px;
+
+            border-radius:28px;
 
             display:flex;
             justify-content:center;
             align-items:center;
 
-            overflow:hidden;
+            margin-bottom:35px;
+
+            background:
+            linear-gradient(
+            135deg,
+            #ff8cfb,
+            #7a00ff
+            );
+
+            box-shadow:
+            0 10px 25px rgba(122,0,255,0.4);
         }
 
-        .task-container{
+        .logo-box i{
 
-            width:500px;
-
-            background:rgba(255,255,255,0.08);
-
-            backdrop-filter:blur(15px);
-
-            border:1px solid rgba(255,255,255,0.2);
-
-            border-radius:30px;
-
-            padding:40px;
-
-            box-shadow:0px 10px 40px rgba(0,0,0,0.3);
-
+            font-size:42px;
             color:white;
         }
 
-        .task-title{
+        h1{
 
-            font-size:40px;
-            font-weight:bold;
+            font-size:58px;
+            font-weight:700;
 
             margin-bottom:10px;
+
+            line-height:1.1;
         }
 
-        .task-subtitle{
+        .subtitle{
 
-            color:#ddd;
+            color:#f3e5ff;
 
-            margin-bottom:35px;
+            margin-bottom:40px;
+
+            font-size:20px;
         }
 
         .form-control{
 
-            height:55px;
+            width:100%;
 
-            border-radius:15px;
+            height:65px;
 
             border:none;
 
-            background:rgba(255,255,255,0.12);
+            outline:none;
+
+            padding:0 22px;
+
+            margin-bottom:22px;
+
+            border-radius:18px;
+
+            background:
+            rgba(255,255,255,0.18);
 
             color:white;
 
-            padding-left:20px;
+            font-size:18px;
 
-            margin-bottom:25px;
+            backdrop-filter:blur(10px);
         }
 
         .form-control::placeholder{
-
-            color:#ddd;
+            color:#f1e3ff;
         }
 
-        .form-control:focus{
-
-            background:rgba(255,255,255,0.18);
+        input[type="date"]{
 
             color:white;
-
-            box-shadow:none;
         }
 
         .btn-task{
 
             width:100%;
 
-            height:55px;
+            height:68px;
 
             border:none;
 
-            border-radius:15px;
+            border-radius:20px;
 
-            font-size:20px;
-            font-weight:bold;
+            font-size:30px;
+
+            font-weight:700;
+
+            cursor:pointer;
 
             color:white;
+
+            margin-top:10px;
 
             background:
             linear-gradient(
             to right,
-            #1B0045,
-            #FF9FF3
+            #230046,
+            #ff8cfb
             );
 
             transition:0.3s;
+
+            box-shadow:
+            0 10px 25px rgba(0,0,0,0.25);
         }
 
         .btn-task:hover{
 
-            transform:scale(1.03);
+            transform:translateY(-3px);
 
-            opacity:0.9;
+            opacity:0.95;
         }
 
-        .back-btn{
-
-            margin-top:20px;
+        .back-link{
 
             display:block;
 
             text-align:center;
 
+            margin-top:30px;
+
             color:white;
 
             text-decoration:none;
+
+            font-size:20px;
+
+            font-weight:500;
         }
 
-        .icon-box{
+        .back-link:hover{
 
-            width:90px;
-            height:90px;
+            color:#ffd6ff;
+        }
 
-            border-radius:25px;
+        @media(max-width:600px){
 
-            background:
-            linear-gradient(
-            to right,
-            #FF7CF0,
-            #7A00FF
-            );
+            .glass-card{
 
-            display:flex;
-            justify-content:center;
-            align-items:center;
+                width:92%;
+                padding:30px;
+            }
 
-            font-size:40px;
+            h1{
 
-            margin-bottom:25px;
+                font-size:42px;
+            }
+
+            .btn-task{
+
+                font-size:24px;
+            }
+
         }
 
     </style>
@@ -176,44 +235,40 @@
 
 <body>
 
-    <div class="task-container">
+    <div class="glass-card">
 
-        <div class="icon-box">
-
+        <div class="logo-box">
             <i class="fa-solid fa-list-check"></i>
-
         </div>
 
-        <div class="task-title">
-            Add New Task
-        </div>
+        <h1>Add New Task</h1>
 
-        <div class="task-subtitle">
+        <p class="subtitle">
             Organize your work efficiently
-        </div>
+        </p>
 
-        <form method="POST">
+        <form action="/add_task" method="POST">
 
             <input type="text"
-                   name="task"
-                   class="form-control"
-                   placeholder="Enter your task"
-                   required>
+                name="task"
+                class="form-control"
+                placeholder="Enter Task"
+                required>
 
-            <button class="btn-task">
+            <input type="date"
+                name="due_date"
+                class="form-control"
+                required>
 
+            <button type="submit" class="btn-task">
                 <i class="fa-solid fa-plus"></i>
-
                 Add Task
-
             </button>
 
         </form>
 
-        <a href="/tasks" class="back-btn">
-
+        <a href="/tasks" class="back-link">
             ← Back to Tasks
-
         </a>
 
     </div>

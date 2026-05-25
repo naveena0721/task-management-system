@@ -3,27 +3,22 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
+        stage('Build') {
             steps {
-                echo 'Project Ready'
+                bat 'docker build -t taskflow-ai .'
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Stop Old Container') {
             steps {
-                bat 'pip install -r requirements.txt'
+                bat 'docker stop taskflow-container || exit 0'
+                bat 'docker rm taskflow-container || exit 0'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Run New Container') {
             steps {
-                bat 'docker build -t task-system .'
-            }
-        }
-
-        stage('Run Container') {
-            steps {
-                bat 'docker run -d -p 5000:5000 task-system'
+                bat 'docker run -d -p 5000:5000 --name taskflow-container taskflow-ai'
             }
         }
 
